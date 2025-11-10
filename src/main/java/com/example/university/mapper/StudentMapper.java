@@ -5,6 +5,9 @@ import com.example.university.model.Course;
 import com.example.university.model.Student;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class StudentMapper {
 
@@ -29,4 +32,14 @@ public class StudentMapper {
         s.setCourse(course);
         return s;
     }
+
+    public List<StudentDto> toDtoList(List<Student> entities) {
+        List<StudentDto> list = new ArrayList<>();
+        if (entities == null) return list;
+        for (Student s : entities) {
+            list.add(toDto(s));
+        }
+        return list;
+    }
+
 }

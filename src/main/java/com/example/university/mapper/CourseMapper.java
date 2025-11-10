@@ -35,4 +35,14 @@ public class CourseMapper {
         c.setInstructor(dto.getInstructor());
         return c;
     }
+
+    public List<CourseDto> toDtoList(List<Course> entities) {
+        List<CourseDto> list = new ArrayList<>();
+        if (entities == null) return list;
+        for (Course c : entities) {
+            list.add(toDto(c));
+        }
+        return list;
+    }
+
 }
